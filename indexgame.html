@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High or Low Card Game</title>
+    <link rel="stylesheet" href="stylesgame.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>High or Low Card Game</h1>
+        <div id="card-container">
+            <h2 id="current-card">Current Card: </h2>
+            <div id="card"></div>
+        </div>
+        <div id="game-controls">
+            <button id="higher" onclick="guess('higher')">Higher</button>
+            <button id="lower" onclick="guess('lower')">Lower</button>
+            <button id="restart" onclick="startGame()" style="display: none;">Restart</button>
+        </div>
+        <div id="score">
+            <p>Score: <span id="score-value">0</span></p>
+        </div>
+        <div id="game-message"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
