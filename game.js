@@ -57,16 +57,22 @@ function guess(playerGuess) {
     let nextCard = drawCard();
     displayCard(nextCard);
 
-    if ((playerGuess === 'higher' && nextCard.value > currentCard.value) ||
-        (playerGuess === 'lower' && nextCard.value < currentCard.value)) {
+    if (nextCard.value === currentCard.value) {
+        // If the ranks are the same but suits are different, continue without changing score
+        document.getElementById('game-message').textContent = "Same rank! No points, try again!";
+    } else if ((playerGuess === 'higher' && nextCard.value > currentCard.value) ||
+               (playerGuess === 'lower' && nextCard.value < currentCard.value)) {
+        // Correct guess
         score++;
-        currentCard = nextCard;
         document.getElementById('game-message').textContent = "Correct! Go again!";
     } else {
+        // Incorrect guess
         document.getElementById('game-message').textContent = "Incorrect! Game over.";
         endGame();
+        return;
     }
 
+    currentCard = nextCard;
     document.getElementById('score-value').textContent = score;
 }
 
