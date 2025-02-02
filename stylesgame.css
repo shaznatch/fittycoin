@@ -16,6 +16,8 @@ body {
     gap: 20px;
     flex-wrap: wrap; /* Allow wrapping for smaller screens */
     padding: 10px; /* Add padding for smaller screens */
+    width: 100%; /* Ensure container is full width */
+    box-sizing: border-box;
 }
 
 .game-container {
@@ -24,9 +26,10 @@ body {
     border-radius: 10px;
     padding: 20px;
     background-color: rgb(47, 240, 70);
-    width: 100%; /* Full width for smaller screens */
+    width: 100%; /* Full width on smaller screens */
     max-width: 300px; /* Max width for larger screens */
-    box-sizing: border-box; /* Ensure padding doesn't overflow */
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    margin-bottom: 20px; /* Add some space between game container and leaderboard */
 }
 
 .leaderboard-container {
