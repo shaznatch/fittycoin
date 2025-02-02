@@ -5,23 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>High or Low Card Game</title>
     <link rel="stylesheet" href="stylesgame.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/umd/supabase.js" defer></script>
+
 </head>
 <body>
-    <div class="game-container">
-        <h1>High or Low Card Game</h1>
-        <div id="card-container">
-            <h2 id="current-card">Current Card: </h2>
-            <div id="card"></div>
+    <div class="container">
+        <div class="game-container">
+            <h1>High or Low Card Game</h1>
+            <div id="card-container">
+                <h2 id="current-card">Current Card: </h2>
+                <div id="card"></div>
+            </div>
+            <div id="game-controls">
+                <button id="higher" onclick="guess('higher')">Higher</button>
+                <button id="lower" onclick="guess('lower')">Lower</button>
+                <button id="restart" onclick="startGame()" style="display: none;">Restart</button>
+            </div>
+            <div id="score">
+                <p>Score: <span id="score-value">0</span></p>
+            </div>
+            <div id="game-message"></div>
+            <div id="wallet-prompt" style="display: none;">
+                <input type="text" id="wallet-input" placeholder="Enter wallet address">
+                <button onclick="submitScore()">OK</button>
+                <button onclick="cancelSubmission()">Cancel</button>
+                <p id="error-message" style="color: red; display: none;">Invalid wallet address.</p>
+            </div>
         </div>
-        <div id="game-controls">
-            <button id="higher" onclick="guess('higher')">Higher</button>
-            <button id="lower" onclick="guess('lower')">Lower</button>
-            <button id="restart" onclick="startGame()" style="display: none;">Restart</button>
+
+        <div class="leaderboard-container">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboard"></ul>
         </div>
-        <div id="score">
-            <p>Score: <span id="score-value">0</span></p>
-        </div>
-        <div id="game-message"></div>
     </div>
 
     <script src="game.js"></script>
