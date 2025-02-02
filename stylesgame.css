@@ -6,6 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .container {
@@ -13,6 +14,8 @@ body {
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    padding: 10px; /* Add padding for smaller screens */
 }
 
 .game-container {
@@ -21,7 +24,9 @@ body {
     border-radius: 10px;
     padding: 20px;
     background-color: rgb(47, 240, 70);
-    width: 300px;
+    width: 100%; /* Full width for smaller screens */
+    max-width: 300px; /* Max width for larger screens */
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
 }
 
 .leaderboard-container {
@@ -30,7 +35,9 @@ body {
     padding: 20px;
     background-color: #1e1e1e;
     color: white;
-    width: 350px; /* Make sure there's enough width */
+    width: 100%; /* Full width for smaller screens */
+    max-width: 350px; /* Max width for larger screens */
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
 }
 
 .leaderboard-container h2 {
@@ -40,7 +47,7 @@ body {
 #leaderboard {
     list-style: none;
     padding: 0;
-    max-width: 100%; /* Ensure the leaderboard takes up all available space */
+    max-width: 100%;
     overflow: hidden;
 }
 
@@ -49,15 +56,15 @@ body {
     padding: 5px;
     border-bottom: 1px solid #ccc;
     display: flex;
-    justify-content: space-between; /* Space between wallet address and score */
+    justify-content: space-between;
     align-items: center;
-    word-wrap: break-word; /* Allows long words to wrap onto the next line */
-    white-space: normal; /* Allows wrapping for long wallet addresses */
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 #leaderboard li .score {
     font-weight: bold;
-    color: white; /* Ensure score text is visible */
+    color: white;
 }
 
 #card-container {
@@ -83,6 +90,7 @@ body {
     border-radius: 5px;
     margin: 10px;
     cursor: pointer;
+    width: 100%; /* Full width for mobile */
 }
 
 #game-controls button:hover {
@@ -90,10 +98,10 @@ body {
 }
 
 #score {
-    font-size: 24px; /* Increased font size */
+    font-size: 24px;
     font-weight: bold;
-    color: white; /* Make sure the score stands out */
-    margin-top: 20px; /* Add space above */
+    color: white;
+    margin-top: 20px;
 }
 
 #game-message {
@@ -131,4 +139,26 @@ body {
 #error-message {
     color: red;
     margin-top: 5px;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Stack the game and leaderboard containers */
+        gap: 20px;
+    }
+
+    .game-container,
+    .leaderboard-container {
+        width: 100%; /* Ensure both containers take up full width */
+        max-width: none; /* No max-width limit on mobile */
+    }
+
+    #leaderboard li {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
+    #game-controls button {
+        font-size: 14px; /* Make buttons slightly smaller */
+    }
 }
