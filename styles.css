@@ -116,7 +116,7 @@ body {
     min-height: 100vh;
 }
 .chart-container {
-    width: 75vw;          /* 75% of the viewport width */
+    width: 70vw;          /* 75% of the viewport width */
     margin: 20px auto;    /* center it horizontally */
     border: 2px solid #ccc;
     border-radius: 8px;
